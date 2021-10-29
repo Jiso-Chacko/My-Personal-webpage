@@ -341,7 +341,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="" id="submit-form" role="form" class="php-email-form">
+            <form action="" id="submitform" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -375,16 +375,17 @@
 
       <!-- ajax submission -->
       <script>
-        $("#submit-form").submit((e)=>{
+        $("#submitform").submit((e)=>{
             e.preventDefault()
+            if($("#submitform").valid()){
             $.ajax({
                 url:"https://script.google.com/macros/s/AKfycbyCYeoF9tXiNijeD91Vm31rRoSf5yhN25bvBT8vZ69CYYYhG10mbNYHAkccPEZNHy3PsA/exec",
-                data:$("#submit-form").serialize(),
+                data:$("#submitform").serialize(),
                 method:"post",
                 success:function (response){
                     alert("Form submitted successfully")
                     window.location.reload()
-                    $("#submit-form")[0].reset();
+                    $("#submitform")[0].reset();
                     //window.location.href="https://google.com"
                 },
                 error:function (err){
@@ -393,9 +394,14 @@
                 }
                 
             })
+          }
             
         })
     </script>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="script.js"></script>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
@@ -431,6 +437,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
 
 </body>
 
