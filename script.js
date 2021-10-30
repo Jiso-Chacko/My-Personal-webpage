@@ -36,3 +36,4 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 $(document).ready(function(){
     validatesubmitform();
 })
+
